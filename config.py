@@ -1,8 +1,10 @@
 import os
+import uuid
 basedir = os.path.abspath(os.path.dirname(__file__))
+random_uuid = str(uuid.uuid4())
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'mystery-tomato-elderberry-shoelace'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or random_uuid
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
